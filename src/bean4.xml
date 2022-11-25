@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 级联赋值 -->
+    <bean id="emp" class="com.atguigu.bean.Emp">
+        <!-- 设置两个普通属性 -->
+        <property name="name" value="tom"></property>
+        <property name="gender" value="male"></property>
+        <!-- 级联赋值 -->
+        <property name="dept" ref="dept"></property>
+        <!-- 必须获得该对象，即生成dept对象的get方法 -->
+        <property name="dept.name" value="技术部"></property>
+    </bean>
+
+    <bean id="dept" class="com.atguigu.bean.Dept">
+        <property name="name" value="安保部"></property>
+    </bean>
+
+</beans>
